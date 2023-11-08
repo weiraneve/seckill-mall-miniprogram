@@ -1,9 +1,14 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
+	"pages": [{
+			"path": "pages/tabBar/goodsList/goodsList",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "商品列表"
+			}
+		},
+		{
+			"path": "pages/tabBar/order/order",
+			"style": {
+				"navigationBarTitleText": "订单页面"
 			}
 		}
 	],
@@ -13,5 +18,23 @@
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8"
 	},
-	"uniIdRouter": {}
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#F8F8F8",
+		"list": [{
+				"pagePath": "pages/tabBar/goodsList/goodsList",
+				"iconPath": "static/goodsList.png",
+				"selectedIconPath": "static/goodsList.png",
+				"text": "商品列表"
+			},
+			{
+				"pagePath": "pages/tabBar/order/order",
+				"iconPath": "static/order.png",
+				"selectedIconPath": "static/order.png",
+				"text": "订单页面"
+			}
+		]
+	}
 }
