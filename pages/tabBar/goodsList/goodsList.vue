@@ -7,21 +7,21 @@
 			</view>
 		</scroll-view>
 		<view class="tab-content" v-show="currentTabIndex === 0">
-			<text>0</text>
+			<goods-card :goods_name="'商品1'" :goods_image="'/static/logo.png'" :goods_title="'商品1业务'"
+				:goods_price="'¥100'" @buy="handleBuy"></goods-card>
 		</view>
 		<view class="tab-content" v-show="currentTabIndex === 1">
-			<text>1</text>
+			<goods-card :goods_name="'商品2'" :goods_image="'/static/logo.png'" :goods_title="'商品2业务'"
+				:goods_price="'¥200'" @buy="handleBuy"></goods-card>
 		</view>
-		<view class="tab-content" v-show="currentTabIndex === 2">
-			<text>2</text>
-		</view>
-		<view class="tab-content" v-show="currentTabIndex === 3">
-			<text>3</text>
-		</view>
+		<view class="tab-content" v-show="currentTabIndex === 2" />
+		<view class="tab-content" v-show="currentTabIndex === 3" />
 	</view>
 </template>
 
 <script>
+	import GoodsCard from '../../component/goodsCard/goodsCard';
+
 	export default {
 		data() {
 			return {
@@ -44,7 +44,13 @@
 		methods: {
 			switchTab(index) {
 				this.currentTabIndex = index;
+			},
+			handleBuy(item) {
+				console.log('购买了', item);
 			}
+		},
+		components: {
+			'goods-card': GoodsCard
 		}
 	};
 </script>

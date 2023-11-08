@@ -10,6 +10,14 @@
 			"style": {
 				"navigationBarTitleText": "订单页面"
 			}
+		},
+		{
+			"path" : "pages/component/goodsCard/goodsCard",
+			"style" : 
+			{
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
 		}
 	],
 	"globalStyle": {
