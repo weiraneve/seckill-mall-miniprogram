@@ -7,8 +7,9 @@
 			</view>
 		</scroll-view>
 		<view class="tab-content" v-show="currentTabIndex === 0">
-			<goods-card :goods_name="'商品1'" :goods_image="'/static/logo.png'" :goods_title="'商品1业务'"
-				:goods_price="'¥100'" @buy="handleBuy"></goods-card>
+			<goods-card v-for="(goodsItem, index) in goodsList" :key="index" :goods_name="goodsItem.goods_name"
+				:goods_image="goodsItem.goods_image" :goods_title="goodsItem.goods_title"
+				:goods_price="goodsItem.goods_price" @buy="handleBuy" />
 		</view>
 		<view class="tab-content" v-show="currentTabIndex === 1">
 			<goods-card :goods_name="'商品2'" :goods_image="'/static/logo.png'" :goods_title="'商品2业务'"
@@ -38,6 +39,31 @@
 					{
 						name: '已结束'
 					},
+				],
+				goodsList: [{
+						goods_name: '商品1',
+						goods_image: '/static/logo.png',
+						goods_title: '商品1业务',
+						goods_price: '¥100'
+					},
+					{
+						goods_name: '商品2',
+						goods_image: '/static/logo.png',
+						goods_title: '商品2业务',
+						goods_price: '¥200'
+					},
+					{
+						goods_name: '商品3',
+						goods_image: '/static/logo.png',
+						goods_title: '商品3业务',
+						goods_price: '¥300'
+					},
+					{
+						goods_name: '商品4',
+						goods_image: '/static/logo.png',
+						goods_title: '商品4业务',
+						goods_price: '¥400'
+					}
 				]
 			};
 		},
