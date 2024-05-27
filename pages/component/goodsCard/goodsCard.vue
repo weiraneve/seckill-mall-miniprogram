@@ -7,7 +7,7 @@
 				<view class="goods-title">{{ goods_title }}</view>
 				<view class="goods-price">{{ goods_price }}</view>
 			</view>
-			<button class="buy-btn" @click="handleBuyClick">进入秒杀详情</button>
+			<button class="buy-btn" @click="handleBuyClick">即刻购买</button>
 		</view>
 	</view>
 </template>
