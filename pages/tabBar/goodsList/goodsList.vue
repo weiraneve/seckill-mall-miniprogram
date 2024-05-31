@@ -9,11 +9,11 @@
 		<view class="tab-content" v-show="currentTabIndex === 0">
 			<goods-card v-for="(goodsItem, index) in goodsList" :key="index" :goods_name="goodsItem.goods_name"
 				:goods_image="goodsItem.goods_image" :goods_title="goodsItem.goods_title"
-				:goods_price="goodsItem.goods_price" @buy="handleBuy" />
+				:goods_price="goodsItem.goods_price" @buy="fetchData" />
 		</view>
 		<view class="tab-content" v-show="currentTabIndex === 1">
 			<goods-card :goods_name="'商品2'" :goods_image="'/static/logo.png'" :goods_title="'商品2业务'"
-				:goods_price="'¥200'" @buy="handleBuy"></goods-card>
+				:goods_price="'¥200'" @buy="fetchData"></goods-card>
 		</view>
 		<view class="tab-content" v-show="currentTabIndex === 2" />
 		<view class="tab-content" v-show="currentTabIndex === 3" />
@@ -21,7 +21,8 @@
 </template>
 
 <script>
-	import GoodsCard from '../../component/goodsCard/goodsCard';
+	import GoodsCard from '@/pages/component/goodsCard/goodsCard';
+	import api from '@/common/api.js';
 
 	export default {
 		data() {
@@ -71,9 +72,15 @@
 			switchTab(index) {
 				this.currentTabIndex = index;
 			},
-			handleBuy(item) {
-				console.log('购买了', item);
-			}
+			fetchData() {
+				api.get('/')
+					.then(response => {
+						console.log('成功获取数据:', response);
+					})
+					.catch(error => {
+						console.log('请求失败:', error);
+					});
+				}
 		},
 		components: {
 			'goods-card': GoodsCard
