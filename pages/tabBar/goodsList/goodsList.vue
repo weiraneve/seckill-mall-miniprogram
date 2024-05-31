@@ -13,7 +13,7 @@
 		</view>
 		<view class="tab-content" v-show="currentTabIndex === 1">
 			<goods-card :goods_name="'商品2'" :goods_image="'/static/logo.png'" :goods_title="'商品2业务'"
-				:goods_price="'¥200'" @buy="fetchData"></goods-card>
+				:goods_price="'¥200'" @buy="fetchData" />
 		</view>
 		<view class="tab-content" v-show="currentTabIndex === 2" />
 		<view class="tab-content" v-show="currentTabIndex === 3" />
