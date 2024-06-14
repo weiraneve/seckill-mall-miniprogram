@@ -1,5 +1,5 @@
 # 简介
-[uniapp](https://uniapp.dcloud.net.cn)技术栈的秒杀应用的小程序。
+[uniapp](https://uniapp.dcloud.net.cn)技术栈的秒杀应用的小程序。使用VUE2的语法。
 
 ## 项目的前端与后端
 - [本项目的后端](https://github.com/weiraneve/seckillcloud)
