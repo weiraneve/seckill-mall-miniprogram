@@ -1,5 +1,6 @@
 {
-	"pages": [{
+	"pages": [
+		{
 			"path": "pages/tabBar/goodsList/goodsList",
 			"style": {
 				"navigationBarTitleText": "商品列表"
@@ -12,11 +13,10 @@
 			}
 		},
 		{
-			"path" : "pages/component/goodsCard/goodsCard",
-			"style" : 
-			{
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
+			"path": "pages/component/goodsCard/goodsCard",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
 			}
 		}
 	],
@@ -31,7 +31,8 @@
 		"selectedColor": "#007AFF",
 		"borderStyle": "black",
 		"backgroundColor": "#F8F8F8",
-		"list": [{
+		"list": [
+			{
 				"pagePath": "pages/tabBar/goodsList/goodsList",
 				"iconPath": "static/goodsList.png",
 				"selectedIconPath": "static/goodsList.png",
