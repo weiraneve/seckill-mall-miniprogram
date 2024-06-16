@@ -1,12 +1,6 @@
 {
 	"pages": [
 		{
-			"path": "pages/login/loginPage",
-			"style": {
-				"navigationBarTitleText": "登录界面"
-			}
-		},
-		{
 			"path": "pages/tabBar/goodsList/goodsList",
 			"style": {
 				"navigationBarTitleText": "商品列表"
@@ -23,6 +17,12 @@
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/login/loginPage",
+			"style": {
+				"navigationBarTitleText": "登录界面"
 			}
 		}
 	],
