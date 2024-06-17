@@ -49,6 +49,12 @@
 				"iconPath": "static/order.png",
 				"selectedIconPath": "static/order.png",
 				"text": "订单页面"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/user.png",
+				"selectedIconPath": "static/user.png",
+				"text": "我的"
 			}
 		]
 	}
