@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import GoodsCard from "@/pages/component/goodsCard/goodsCard";
+import GoodsCard from "@/components/goodsCard";
 import api from "@/network/api.js";
 
 export default {
