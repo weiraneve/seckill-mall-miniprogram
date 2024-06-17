@@ -24,6 +24,12 @@
 			"style": {
 				"navigationBarTitleText": "登录界面"
 			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
 		}
 	],
 	"globalStyle": {
