@@ -145,5 +145,6 @@ export default {
 }
 
 .tab-content {
+   opacity: 1; /* 占位 */
 }
 </style>
