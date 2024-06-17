@@ -20,7 +20,7 @@
 			}
 		},
 		{
-			"path": "pages/login/loginPage",
+			"path": "pages/login/login",
 			"style": {
 				"navigationBarTitleText": "登录界面"
 			}
