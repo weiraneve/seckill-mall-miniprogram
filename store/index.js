@@ -8,15 +8,24 @@ const store = new Vuex.Store({
         hasLogin: false,
         isUniverifyLogin: false,
         univerifyErrorMsg: '',
-        loginProvider: ""
+        loginProvider: "",
+        userInfo: {},
     },
     mutations: {
         login(state, provider) {
             state.hasLogin = true;
             state.loginProvider = provider;
+            uni.setStorage({
+                key: 'userInfo',
+                data: provider
+            })
         },
         logout(state) {
             state.hasLogin = false;
+            state.userInfo = {};
+            uni.removeStorage({
+                key: 'userInfo'
+            })
         },
         setUniverifyLogin(state, payload) {
             typeof payload !== 'boolean' ? payload = !!payload : '';
@@ -28,6 +37,9 @@ const store = new Vuex.Store({
         setOpenid(state, openid) {
             state.openid = openid;
         },
+    },
+    actions: {
+
     }
 })
 

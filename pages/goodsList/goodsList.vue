@@ -46,7 +46,7 @@
 
 <script>
 import GoodsCard from "@/pages/component/goodsCard/goodsCard";
-import api from "@/common/api.js";
+import api from "@/network/api.js";
 
 export default {
   data() {
