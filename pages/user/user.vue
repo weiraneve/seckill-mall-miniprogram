@@ -122,11 +122,13 @@
 			 */
 			navTo(url){
 				if(!this.hasLogin){
-					url = '/pages/public/login';
+					url = '/pages/login/login';
 				}
-				uni.navigateTo({  
-					url
-				})  
+                if (url == '/pages/order/order') {
+                    uni.switchTab({url})   
+                } else {
+                    uni.navigateTo({url})  
+                }
 			}, 
 	
 			/**
