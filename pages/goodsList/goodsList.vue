@@ -55,15 +55,29 @@ export default {
     currentTabGoods() {
       const currentDate = new Date().getTime();
       if (this.currentTabIndex === 0) {
-        return this.goodsList.filter((item) => new Date(item.goods.startTime).getTime() <= currentDate && new Date(item.goods.endTime).getTime() >= currentDate);
+        return this.goodsList.filter(
+          (item) =>
+            new Date(item.goods.startTime).getTime() <= currentDate &&
+            new Date(item.goods.endTime).getTime() >= currentDate
+        );
       } else if (this.currentTabIndex === 1) {
         const todayStart = new Date(new Date().setHours(0, 0, 0, 0)).getTime();
-        return this.goodsList.filter((item) => new Date(item.goods.startTime).getTime() <= todayStart && new Date(item.goods.endTime).getTime() >= todayStart);
+        return this.goodsList.filter(
+          (item) =>
+            new Date(item.goods.startTime).getTime() <= todayStart &&
+            new Date(item.goods.endTime).getTime() >= todayStart
+        );
       } else if (this.currentTabIndex === 2) {
-        const tomorrowStart = new Date(new Date().setHours(0, 0, 0, 0)).getTime() + 24 * 60 * 60 * 1000;
-        return this.goodsList.filter((item) => new Date(item.goods.startTime).getTime() >= tomorrowStart);
+        const tomorrowStart =
+          new Date(new Date().setHours(0, 0, 0, 0)).getTime() +
+          24 * 60 * 60 * 1000;
+        return this.goodsList.filter(
+          (item) => new Date(item.goods.startTime).getTime() >= tomorrowStart
+        );
       } else if (this.currentTabIndex === 3) {
-        return this.goodsList.filter((item) => new Date(item.goods.endTime).getTime() < currentDate);
+        return this.goodsList.filter(
+          (item) => new Date(item.goods.endTime).getTime() < currentDate
+        );
       } else {
         return [];
       }
