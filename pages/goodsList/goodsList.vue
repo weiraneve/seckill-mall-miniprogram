@@ -19,9 +19,9 @@
         {{ item.name }}
       </view>
     </scroll-view>
-    <view class="tab-content" v-show="currentTabIndex === 0">
+    <view v-if="currentTabGoods.length > 0" class="tab-content">
       <goods-card
-        v-for="(goodsItem, index) in goodsList"
+        v-for="(goodsItem, index) in currentTabGoods"
         :key="index"
         :goods_name="goodsItem.goods_name"
         :goods_image="goodsItem.goods_image"
@@ -30,17 +30,7 @@
         @buy="fetchData"
       />
     </view>
-    <view class="tab-content" v-show="currentTabIndex === 1">
-      <goods-card
-        :goods_name="'商品2'"
-        :goods_image="'/static/logo.png'"
-        :goods_title="'商品2业务'"
-        :goods_price="'¥200'"
-        @buy="fetchData"
-      />
-    </view>
-    <view class="tab-content" v-show="currentTabIndex === 2" />
-    <view class="tab-content" v-show="currentTabIndex === 3" />
+    <view v-else class="tab-content">暂无商品</view>
   </view>
 </template>
 
@@ -53,18 +43,10 @@ export default {
     return {
       currentTabIndex: 0,
       tabList: [
-        {
-          name: "已经开始",
-        },
-        {
-          name: "今天已经开始",
-        },
-        {
-          name: "未来即将开始",
-        },
-        {
-          name: "已结束",
-        },
+        { name: "已经开始" },
+        { name: "今天已经开始" },
+        { name: "未来即将开始" },
+        { name: "已结束" },
       ],
       goodsList: [
         {
@@ -94,13 +76,20 @@ export default {
       ],
     };
   },
+  computed: {
+    currentTabGoods() {
+      return this.goodsList.filter(
+        (item, index) => index === this.currentTabIndex
+      );
+    },
+  },
   methods: {
     switchTab(index) {
       this.currentTabIndex = index;
     },
     fetchData() {
       api
-        .get("/")
+        .get("/mission/goods/getGoodsList")
         .then((response) => {
           console.log("成功获取数据:", response);
         })
@@ -115,21 +104,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .top-tab-bar {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
   border-bottom: 1px solid #e5e5e5;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .top-tab-bar::-webkit-scrollbar {
   display: none;
-}
-
-.top-tab-bar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
 .top-tab {
@@ -145,6 +131,6 @@ export default {
 }
 
 .tab-content {
-   opacity: 1; /* 占位 */
+  opacity: 1; /* 占位 */
 }
 </style>
