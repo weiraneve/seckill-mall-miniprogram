@@ -1,27 +1,47 @@
 <template>
   <view>
     <view class="order-card" v-for="(order, index) in orderList" :key="index">
-      <text class="order-goods-name">{{ order.goods_name }}</text>
-      <text class="order-create-time">创建时间: {{ order.create_time }}</text>
+      <text class="order-goods-name">{{ order.goodsName }}</text>
+      <text class="order-create-time"
+        >创建时间: {{ formatTime(order.createdAt) }}</text
+      >
     </view>
   </view>
 </template>
 
 <script>
+import api from "@/network/api.js";
+
 export default {
   data() {
     return {
-      orderList: [
-        {
-          goods_name: "商品A",
-          create_time: "2023-11-01 08:00:00",
-        },
-        {
-          goods_name: "商品B",
-          create_time: "2023-11-02 09:00:00",
-        },
-      ],
+      orderList: [],
     };
+  },
+  methods: {
+    getOrders() {
+      api
+        .get("/mission/order")
+        .then((response) => {
+          if (response.success) {
+            this.orderList = response.data || [];
+          }
+        })
+        .catch(() => {
+          uni.showToast({
+            title: "请求数据失败",
+            icon: "none",
+            duration: 4000,
+          });
+        });
+    },
+    formatTime(timeStr) {
+      const date = new Date(timeStr);
+      return date.toLocaleString();
+    },
+  },
+  mounted() {
+    this.getOrders();
   },
 };
 </script>
