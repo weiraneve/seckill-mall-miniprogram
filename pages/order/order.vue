@@ -27,11 +27,11 @@ export default {
             this.orderList = response.data || [];
           } else {
             this.orderList = [];
-            console.log("请求失败")
             throw new Error("请求数据失败");
           }
         })
         .catch(() => {
+          this.orderList = [];
           uni.showToast({
             title: "请求数据失败",
             icon: "none",

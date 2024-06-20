@@ -99,6 +99,7 @@ export default {
           }
         })
         .catch(() => {
+          this.goodsList = [];
           uni.showToast({
             title: "请求数据失败",
             icon: "none",
