@@ -91,13 +91,18 @@ export default {
       api
         .get("/mission/goods/getGoodsList")
         .then((response) => {
-          this.goodsList = response.data || [];
+          if (response.success) {
+            this.goodsList = response.data || [];
+          } else {
+            this.goodsList = [];
+            throw new Error("请求数据失败");
+          }
         })
         .catch(() => {
           uni.showToast({
             title: "请求数据失败",
             icon: "none",
-            duration: 4000,
+            duration: 2000,
           });
         });
     },
