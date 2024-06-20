@@ -92,10 +92,13 @@ export default {
         .get("/mission/goods/getGoodsList")
         .then((response) => {
           this.goodsList = response.data || [];
-          console.log("成功获取数据:", response);
         })
-        .catch((error) => {
-          console.log("请求失败:", error);
+        .catch(() => {
+          uni.showToast({
+            title: "请求数据失败",
+            icon: "none",
+            duration: 4000,
+          });
         });
     },
     seckill() {
@@ -109,11 +112,19 @@ export default {
             throw new Error("获取路径失败");
           }
         })
-        .then((seckillResponse) => {
-          console.log("秒杀成功:", seckillResponse);
+        .then(() => {
+          uni.showToast({
+            title: "秒杀成功",
+            icon: "success",
+            duration: 2000,
+          });
         })
-        .catch((error) => {
-          console.log("秒杀失败:", error);
+        .catch(() => {
+          uni.showToast({
+            title: "秒杀失败，请重试",
+            icon: "none",
+            duration: 2000,
+          });
         });
     },
   },
