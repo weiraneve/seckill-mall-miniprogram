@@ -1,4 +1,4 @@
-const BASE_URL = 'https://baidu.com';
+const BASE_URL = 'http://localhost:8205';
 
 const request = (url, method, data, header = {}, showLoading = true) => {
     if (showLoading) {
