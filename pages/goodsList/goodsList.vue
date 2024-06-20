@@ -27,7 +27,7 @@
         :goods_image="goodsItem.goods_image"
         :goods_title="goodsItem.goods_title"
         :goods_price="goodsItem.goods_price"
-        @buy="getGoodsList"
+        @buy="seckill"
       />
     </view>
     <view v-else class="tab-content">暂无商品</view>
@@ -96,6 +96,24 @@ export default {
         })
         .catch((error) => {
           console.log("请求失败:", error);
+        });
+    },
+    seckill() {
+      api
+        .get("/mission/seckill/getPath?goodsId=1")
+        .then((response) => {
+          if (response.success) {
+            const path = response.data;
+            return api.get(`/mission/seckill?goodsId=1&path=${path}`);
+          } else {
+            throw new Error("获取路径失败");
+          }
+        })
+        .then((seckillResponse) => {
+          console.log("秒杀成功:", seckillResponse);
+        })
+        .catch((error) => {
+          console.log("秒杀失败:", error);
         });
     },
   },
