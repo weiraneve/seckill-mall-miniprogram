@@ -134,6 +134,9 @@ export default {
   mounted() {
     this.getGoodsList();
   },
+  onShow() {
+    this.getGoodsList();
+  },
 };
 </script>
 

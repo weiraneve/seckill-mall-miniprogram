@@ -43,6 +43,9 @@ export default {
   mounted() {
     this.getOrders();
   },
+  onShow() {
+    this.getOrders();
+  },
 };
 </script>
 
