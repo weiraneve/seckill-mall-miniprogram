@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8205';
+const BASE_URL = 'http://localhost:8205'; // 根据情况更换
 
 const request = (url, method, data, header = {}, showLoading = true) => {
     if (showLoading) {
