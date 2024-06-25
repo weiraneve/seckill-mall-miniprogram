@@ -5,7 +5,8 @@
       <view class="goods-info">
         <view class="goods-name">{{ goods_name }}</view>
         <view class="goods-title">{{ goods_title }}</view>
-        <view class="goods-price">{{ goods_price }}</view>
+        <view class="goods-price">价格: {{ goods_price }}</view>
+        <view class="goods-stock">还剩: {{ goods_stock }}</view>
       </view>
       <button class="buy-btn" @click="handleBuyClick">即刻购买</button>
     </view>
@@ -20,6 +21,7 @@ export default {
     goods_image: String,
     goods_title: String,
     goods_price: String,
+    goods_stock: String,
   },
   methods: {
     handleBuyClick() {
@@ -61,7 +63,8 @@ export default {
 
 .goods-name,
 .goods-title,
-.goods-price {
+.goods-price,
+.goods-stock {
   margin-bottom: 1px;
 }
 

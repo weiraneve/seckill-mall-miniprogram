@@ -27,6 +27,7 @@
         :goods_image="goodsItem.goods.goodsImage"
         :goods_title="goodsItem.goods.goodsTitle"
         :goods_price="goodsItem.goods.goodsPrice"
+        :goods_stock="goodsItem.stockCount"
         @buy="seckill"
       />
     </view>
