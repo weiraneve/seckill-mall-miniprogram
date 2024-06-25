@@ -23,12 +23,7 @@ export default {
   },
   methods: {
     handleBuyClick() {
-      this.$emit("buy", {
-        goods_name: this.goods_name,
-        goods_image: this.goods_image,
-        goods_title: this.goods_title,
-        goods_price: this.goods_price,
-      });
+      this.$emit("buy");
     },
   },
 };
