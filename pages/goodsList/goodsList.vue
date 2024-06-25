@@ -23,10 +23,10 @@
       <goods-card
         v-for="(goodsItem, index) in currentTabGoods"
         :key="index"
-        :goods_name="goodsItem.goods_name"
-        :goods_image="goodsItem.goods_image"
-        :goods_title="goodsItem.goods_title"
-        :goods_price="goodsItem.goods_price"
+        :goods_name="goodsItem.goods.goodsName"
+        :goods_image="goodsItem.goods.goodsImage"
+        :goods_title="goodsItem.goods.goodsTitle"
+        :goods_price="goodsItem.goods.goodsPrice"
         @buy="seckill"
       />
     </view>
