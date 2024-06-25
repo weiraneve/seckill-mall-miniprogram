@@ -24,7 +24,7 @@
         v-for="(goodsItem, index) in currentTabGoods"
         :key="index"
         :goods_name="goodsItem.goods.goodsName"
-        :goods_image="goodsItem.goods.goodsImage"
+        :goods_image="goodsItem.goods.goodsImg"
         :goods_title="goodsItem.goods.goodsTitle"
         :goods_price="goodsItem.goods.goodsPrice"
         :goods_stock="goodsItem.stockCount"
