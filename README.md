@@ -20,6 +20,6 @@ UI和一些功能暂时没调整。
 <img src="./docs/images/order.png" alt="订单页面" width="30%" />
 
 
-- 我的页面
+- 用户页面
 
-<img src="./docs/images/me.png" alt="订单页面" width="30%" />
+<img src="./docs/images/user.png" alt="订单页面" width="30%" />
