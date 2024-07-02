@@ -22,4 +22,4 @@ UI和一些功能暂时没调整。
 
 - 用户页面
 
-<img src="./docs/images/user.png" alt="订单页面" width="30%" />
+<img src="./docs/images/user.png" alt="用户页面" width="30%" />
