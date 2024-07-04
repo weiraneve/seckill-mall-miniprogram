@@ -1,5 +1,5 @@
 <template>
-  <view>
+  <div>
     <scroll-view
       class="top-tab-bar"
       scroll-x="true"
@@ -19,7 +19,7 @@
         {{ item.name }}
       </view>
     </scroll-view>
-    <view v-if="currentTabGoods.length > 0" class="tab-content">
+    <div v-if="currentTabGoods.length > 0" class="tab-content">
       <goods-card
         v-for="(goodsItem, index) in currentTabGoods"
         :key="index"
@@ -30,9 +30,9 @@
         :goods_stock="goodsItem.stockCount"
         @buy="seckill"
       />
-    </view>
-    <view v-else class="tab-content">暂无商品</view>
-  </view>
+    </div>
+    <div v-else class="tab-content">暂无商品</div>
+  </div>
 </template>
 
 <script>
@@ -40,6 +40,10 @@ import GoodsCard from "@/components/goodsCard";
 import api from "@/network/api.js";
 
 export default {
+  name: "GoodsList",
+  components: {
+    "goods-card": GoodsCard,
+  },
   data() {
     return {
       currentTabIndex: 0,
@@ -134,9 +138,6 @@ export default {
           });
         });
     },
-  },
-  components: {
-    "goods-card": GoodsCard,
   },
   mounted() {
     this.getGoodsList();
