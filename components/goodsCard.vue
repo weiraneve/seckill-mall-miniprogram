@@ -1,16 +1,16 @@
 <template>
-  <view class="card">
+  <div class="card">
     <image :src="goods_image" class="goods-image"></image>
-    <view class="card-body">
-      <view class="goods-info">
-        <view class="goods-name">{{ goods_name }}</view>
-        <view class="goods-title">{{ goods_title }}</view>
-        <view class="goods-price">价格: {{ goods_price }}</view>
-        <view class="goods-stock">还剩: {{ goods_stock }}</view>
-      </view>
+    <div class="card-body">
+      <div class="goods-info">
+        <div class="goods-name">{{ goods_name }}</div>
+        <div class="goods-title">{{ goods_title }}</div>
+        <div class="goods-price">价格: {{ goods_price }}</div>
+        <div class="goods-stock">还剩: {{ goods_stock }}</div>
+      </div>
       <button class="buy-btn" @click="handleBuyClick">即刻购买</button>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
 
 <script>
