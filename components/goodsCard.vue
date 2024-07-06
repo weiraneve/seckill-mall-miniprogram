@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <image :src="goods_image" class="goods-image"></image>
+    <img :src="goods_image" class="goods-image"  alt=""/>
     <div class="card-body">
       <div class="goods-info">
         <div class="goods-name">{{ goods_name }}</div>
