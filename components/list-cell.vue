@@ -1,6 +1,6 @@
 <template>
-  <view class="content">
-    <view
+  <div class="content">
+    <div
       class="mix-list-cell"
       :class="border"
       @click="eventClick"
@@ -20,8 +20,8 @@
       <text class="cell-tit clamp">{{ title }}</text>
       <text v-if="tips" class="cell-tip">{{ tips }}</text>
       <text class="cell-more yticon" :class="typeList[navigateType]"></text>
-    </view>
-  </view>
+    </div>
+  </div>
 </template>
  
 <script>
