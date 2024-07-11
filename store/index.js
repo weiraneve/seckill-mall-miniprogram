@@ -31,12 +31,6 @@ const store = new Vuex.Store({
             typeof payload !== 'boolean' ? payload = !!payload : '';
             state.isUniverifyLogin = payload;
         },
-        setUniverifyErrorMsg(state, payload = '') {
-            state.univerifyErrorMsg = payload;
-        },
-        setOpenid(state, openid) {
-            state.openid = openid;
-        },
     },
     actions: {
 
