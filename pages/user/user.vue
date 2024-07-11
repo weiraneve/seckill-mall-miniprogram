@@ -3,7 +3,7 @@
     <view class="user-section">
       <image class="bg" src="/static/user-bg.png"></image>
       <view class="user-info-box">
-        <view class="portrait-box">
+        <view class="portrait-box" @click="goToLogin">
           <image
             class="portrait"
             :src="userInfo.portrait || '/static/user.png'"
@@ -179,6 +179,10 @@ export default {
       } else {
         uni.navigateTo({ url });
       }
+    },
+
+    goToLogin() {
+      uni.navigateTo({ url: "/pages/login/login" });
     },
 
     /**
