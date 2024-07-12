@@ -6,4 +6,4 @@ wxcomponents/**/*.vue
 wxcomponents/**/*.css
 .hbuilderx/
 .idea/
-.env
+env.js

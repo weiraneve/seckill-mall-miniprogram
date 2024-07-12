@@ -36,6 +36,7 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import { config } from "../../env.js";
 
 export default {
   data() {
@@ -75,31 +76,25 @@ export default {
             title: "登录成功",
           });
           this.login("weixin");
-
-          // 微信小程序登录示例
-          console.warn(
-            "如需获取openid请参考uni-id: https://uniapp.dcloud.net.cn/uniCloud/uni-id"
-          );
-          uni.request({
-            url: "https://97fca9f2-41f6-449f-a35e-3f135d4c3875.bspapp.com/http/user-center",
-            method: "POST",
-            data: {
-              action: "loginByWeixin",
-              params: {
-                code: res.code,
-                platform: "mp-weixin",
-              },
-            },
-            success(res) {
-              console.log(res);
-              if (res.data.code !== 0) {
-                console.log("获取openid失败：", res.data.errMsg);
-                return;
-              }
-              uni.setStorageSync("openid", res.data.openid);
-            },
-            fail(err) {
-              console.log("获取openid失败：", err);
+          uni.login({
+            provider: "weixin",
+            success: (res) => {
+              let appid = config.appid;
+              let secret = config.secret;
+              let appIdUrl =
+                "https://api.weixin.qq.com/sns/jscode2session?appid=" +
+                appid +
+                "&secret=" +
+                secret +
+                "&js_code=" +
+                res.code;
+              uni.request({
+                url: appIdUrl,
+                success: (result) => {
+                  this.openid = result.data.openid;
+                  console.log("openid:", result.data.openid);
+                },
+              });
             },
           });
         },
