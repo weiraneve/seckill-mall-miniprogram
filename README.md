@@ -23,3 +23,13 @@ UI和一些功能暂时没调整。
 - 用户页面
 
 <img src="./docs/images/user.png" alt="用户页面" width="30%" />
+
+## 使用
+首先在根目录下，创建文件`env.js`，内容为
+```javascript
+export const config = {
+    appid: 'XXXX',
+    secret: 'XXXX',
+};
+```
+然后就能正常运行，其中内容在微信小程序个人账号里去获得。
