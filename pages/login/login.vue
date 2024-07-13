@@ -26,7 +26,7 @@
         </block>
       </view>
       <view class="uni-btn-v uni- uni-common-mt">
-        <button type="primary" class="page-body-button" @click="tologin">
+        <button type="primary" class="page-body-button" @click="userLogin">
           微信登录
         </button>
       </view>
@@ -67,7 +67,7 @@ export default {
         })
       );
     },
-    tologin() {
+    userLogin() {
       uni.login({
         provider: "weixin",
         success: async (res) => {
