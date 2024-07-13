@@ -15,10 +15,18 @@ const store = new Vuex.Store({
         login(state, provider) {
             state.hasLogin = true;
             state.loginProvider = provider;
+            uni.setStorage({
+                key: 'userInfo',
+                data: provider
+            })
         },
         logout(state) {
             state.hasLogin = false;
             state.userInfo = {};
+
+            uni.removeStorage({
+                key: 'userInfo'
+            })
         },
         setUniverifyLogin(state, payload) {
             typeof payload !== 'boolean' ? payload = !!payload : '';
@@ -26,23 +34,7 @@ const store = new Vuex.Store({
         },
     },
     actions: {
-        doLogin({ commit }, provider) {
-            return new Promise((resolve, reject) => {
-                uni.getUserInfo({
-                    provider: 'weixin',
-                    success: function (infoRes) {
-                        console.log('用户昵称为：' + infoRes.userInfo.nickName);
-                        console.log('userInfo:' + infoRes.userInfo);
-                        commit('login', { provider, userInfo: infoRes.userInfo });
-                        resolve(infoRes);
-                    },
-                    fail: function (error) {
-                        console.error('获取用户信息失败', error);
-                        reject(error);
-                    }
-                });
-            });
-        },
+
     }
 })
 
