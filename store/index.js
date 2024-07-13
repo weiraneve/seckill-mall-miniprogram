@@ -15,17 +15,10 @@ const store = new Vuex.Store({
         login(state, provider) {
             state.hasLogin = true;
             state.loginProvider = provider;
-            uni.setStorage({
-                key: 'userInfo',
-                data: provider
-            })
         },
         logout(state) {
             state.hasLogin = false;
             state.userInfo = {};
-            uni.removeStorage({
-                key: 'userInfo'
-            })
         },
         setUniverifyLogin(state, payload) {
             typeof payload !== 'boolean' ? payload = !!payload : '';
