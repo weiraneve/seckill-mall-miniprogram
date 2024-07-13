@@ -15,8 +15,8 @@
           </view>
           <view class="uni-hello-text uni-center">
             <text
-              >每个账号仅需登录 1
-              次，\n后续每次进入页面即可自动拉取用户信息。</text
+              >每个账号仅需登录1次，
+              后续每次进入页面即可自动拉取用户信息。</text
             >
           </view>
         </block>
