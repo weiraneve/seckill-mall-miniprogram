@@ -6,7 +6,7 @@
         <view class="portrait-box" @click="goToLogin">
           <image
             class="portrait"
-            :src="userInfo.portrait || '/static/user.png'"
+            :src="userInfo.avatarUrl || '/static/user.png'"
           ></image>
         </view>
         <view class="info-box">
