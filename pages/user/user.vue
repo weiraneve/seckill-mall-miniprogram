@@ -10,7 +10,7 @@
           ></image>
         </view>
         <view class="info-box">
-          <text class="username">{{ userInfo.nickname || "游客" }}</text>
+          <text class="username">{{ userInfo.nickName || "游客" }}</text>
         </view>
       </view>
     </view>
