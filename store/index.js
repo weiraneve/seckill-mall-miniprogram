@@ -8,30 +8,28 @@ const store = new Vuex.Store({
         hasLogin: false,
         isUniverifyLogin: false,
         univerifyErrorMsg: '',
-        loginProvider: "",
         userInfo: {},
     },
     mutations: {
-        login(state, provider) {
+        login(state) {
             state.hasLogin = true;
-            state.loginProvider = provider;
-            uni.setStorage({
-                key: 'userInfo',
-                data: provider
-            })
+            uni.getUserProfile({
+                desc: "登录",
+                success: (res) => {
+                    state.userInfo = res.userInfo;
+                },
+                fail: (res) => {
+                    console.log(res);
+                },
+            });
         },
         logout(state) {
             state.hasLogin = false;
             state.userInfo = {};
-
-            uni.removeStorage({
-                key: 'userInfo'
-            })
         },
-        setUniverifyLogin(state, payload) {
-            typeof payload !== 'boolean' ? payload = !!payload : '';
-            state.isUniverifyLogin = payload;
-        },
+        setUserInfo(state, userInfo) {
+            state.userInfo = userInfo;
+        }
     },
     actions: {
 

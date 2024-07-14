@@ -26,7 +26,7 @@
         </block>
       </view>
       <view class="uni-btn-v uni- uni-common-mt">
-        <button type="primary" class="page-body-button" @click="userLogin">
+        <button type="primary" class="page-body-button" @tap="userLogin">
           微信登录
         </button>
       </view>
@@ -47,7 +47,12 @@ export default {
     };
   },
   computed: {
-    ...mapState(["hasLogin", "isUniverifyLogin", "univerifyErrorMsg"]),
+    ...mapState([
+      "hasLogin",
+      "isUniverifyLogin",
+      "univerifyErrorMsg",
+      "userInfo",
+    ]),
   },
   onLoad() {
     if (this.hasLogin && this.isUniverifyLogin) {
@@ -59,7 +64,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["login", "setUniverifyLogin"]),
+    ...mapMutations(["login", "setUserInfo"]),
     Toast(data, duration = 1000) {
       uni.showToast(
         Object.assign({}, data, {
@@ -68,45 +73,7 @@ export default {
       );
     },
     userLogin() {
-      uni.login({
-        provider: "weixin",
-        success: async (res) => {
-          console.log("login success:", res);
-          this.Toast({
-            title: "登录成功",
-          });
-          this.login("weixin");
-          uni.login({
-            provider: "weixin",
-            success: (res) => {
-              let appid = config.appid;
-              let secret = config.secret;
-              let appIdUrl =
-                "https://api.weixin.qq.com/sns/jscode2session?appid=" +
-                appid +
-                "&secret=" +
-                secret +
-                "&js_code=" +
-                res.code;
-              uni.request({
-                url: appIdUrl,
-                success: (result) => {
-                  this.openid = result.data.openid;
-                  console.log("openid:", result.data.openid);
-                },
-              });
-            },
-          });
-        },
-        fail: (err) => {
-          console.log("login fail:", err);
-          uni.showModal({
-            showCancel: false,
-            title: "登录失败",
-            content: JSON.stringify(err),
-          });
-        },
-      });
+      this.login();
     },
   },
 };
