@@ -26,9 +26,11 @@
         </block>
       </view>
       <view class="uni-btn-v uni- uni-common-mt">
-        <button type="primary" class="page-body-button" @tap="userLogin">
-          微信登录
+        <!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-QQ  || MP-JD -->
+        <button type="primary" open-type="getUserInfo" @getuserinfo="userLogin">
+          获取用户信息
         </button>
+        <!-- #endif -->
       </view>
     </view>
   </view>
@@ -72,8 +74,8 @@ export default {
         })
       );
     },
-    userLogin() {
-      this.login();
+    userLogin(result) {
+      this.login(result);
     },
   },
 };
