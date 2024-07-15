@@ -1,0 +1,15 @@
+{
+	"id": "seckill-mall-miniprogram",
+	"name": "seckill-mall-miniprogram",
+	"displayName": "秒杀小程序客户端",
+	"version": "1.0.0",
+	"description": "秒杀小程序客户端APP",
+	"repository": "https://github.com/weiraneve/seckill-mall-miniprogram.git",
+	"keywords": [
+		"seckill-mall-miniprogram"
+	],
+	"author": "steveay",
+	"license": "MIT",
+	"homepage": "https://github.com/weiraneve/seckill-mall-miniprogram#readme",
+	"dependencies": {}
+}
