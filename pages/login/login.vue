@@ -38,7 +38,6 @@
 
 <script>
 import { mapState, mapMutations } from "vuex";
-import { config } from "../../env.js";
 
 export default {
   data() {
