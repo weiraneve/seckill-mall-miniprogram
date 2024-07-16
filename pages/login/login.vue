@@ -3,16 +3,7 @@
     <view class="uni-padding-wrap">
       <view style="background: #fff; padding: 40rpx">
         <block v-if="hasLogin === true">
-          <view class="uni-h3 uni-center uni-common-mt"
-            >已登录
-            <text v-if="isUniverifyLogin" style="font-size: 0.8em">
-              <i
-                v-if="!phoneNumber.length"
-                class="uni-icon_toast uni-loading"
-              ></i>
-              <i v-else>（{{ phoneNumber }}）</i>
-            </text>
-          </view>
+          <view class="uni-h3 uni-center uni-common-mt">已登录 </view>
           <view class="uni-hello-text uni-center">
             <text
               >每个账号仅需登录1次，
@@ -48,15 +39,10 @@ export default {
     };
   },
   computed: {
-    ...mapState([
-      "hasLogin",
-      "isUniverifyLogin",
-      "univerifyErrorMsg",
-      "userInfo",
-    ]),
+    ...mapState(["hasLogin", "univerifyErrorMsg", "userInfo"]),
   },
   onLoad() {
-    if (this.hasLogin && this.isUniverifyLogin) {
+    if (this.hasLogin) {
       this.getPhoneNumber(uni.getStorageSync("univerifyInfo")).then(
         (phoneNumber) => {
           this.phoneNumber = phoneNumber;
