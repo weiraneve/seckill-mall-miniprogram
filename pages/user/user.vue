@@ -3,9 +3,9 @@
     <view class="user-section">
       <image class="bg" src="/static/user-bg.png"></image>
       <view class="user-info-box">
-        <view class="portrait-box" @click="goToLogin">
+        <view class="avatar-box" @click="goToLogin">
           <image
-            class="portrait"
+            class="avatar"
             :src="userInfo.avatarUrl || '/static/user.png'"
           ></image>
         </view>
@@ -261,7 +261,7 @@ export default {
   align-items: center;
   position: relative;
   z-index: 1;
-  .portrait {
+  .avatar {
     width: 130upx;
     height: 130upx;
     border: 5upx solid #fff;
