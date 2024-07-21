@@ -19,7 +19,7 @@
       <view class="uni-btn-v uni- uni-common-mt">
         <!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-QQ  || MP-JD -->
         <button type="primary" open-type="getUserInfo" @getuserinfo="userLogin">
-          获取用户信息
+          登录
         </button>
         <!-- #endif -->
       </view>
