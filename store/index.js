@@ -28,9 +28,6 @@ const store = new Vuex.Store({
             state.hasLogin = false;
             state.userInfo = {};
         },
-        setUserInfo(state, userInfo) {
-            state.userInfo = userInfo;
-        }
     },
     actions: {
 

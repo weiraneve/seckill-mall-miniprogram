@@ -44,7 +44,7 @@ export default {
   },
   onLoad() {},
   methods: {
-    ...mapMutations(["login", "setUserInfo", "logout"]),
+    ...mapMutations(["login", "logout"]),
     Toast(data, duration = 1000) {
       uni.showToast(
         Object.assign({}, data, {
