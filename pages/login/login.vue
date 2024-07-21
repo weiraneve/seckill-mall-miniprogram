@@ -20,7 +20,7 @@
       <view class="uni-btn-v uni- uni-common-mt">
         <!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-QQ  || MP-JD -->
         <button type="primary" open-type="getUserInfo" @getuserinfo="userLogin" style="margin-bottom: 10px;">
-          登录1
+          登录
         </button>
         <button type="primary" @tap="logout">注销</button>
         <!-- #endif -->
