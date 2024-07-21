@@ -16,11 +16,13 @@
           <view class="uni-hello-text uni-center"> 请点击按钮登录 </view>
         </block>
       </view>
+      <view class="button-wrapper">
       <view class="uni-btn-v uni- uni-common-mt">
         <!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-QQ  || MP-JD -->
-        <button type="primary" open-type="getUserInfo" @getuserinfo="userLogin">
-          登录
+        <button type="primary" open-type="getUserInfo" @getuserinfo="userLogin" style="margin-bottom: 10px;">
+          登录1
         </button>
+        <button type="primary" @tap="logout">注销</button>
         <!-- #endif -->
       </view>
     </view>
@@ -51,7 +53,7 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["login", "setUserInfo"]),
+    ...mapMutations(["login", "setUserInfo", "logout"]),
     Toast(data, duration = 1000) {
       uni.showToast(
         Object.assign({}, data, {
