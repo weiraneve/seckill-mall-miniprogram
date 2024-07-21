@@ -36,22 +36,13 @@ export default {
   data() {
     return {
       title: "login",
-      phoneNumber: "",
       univerifyBtnLoading: false,
     };
   },
   computed: {
     ...mapState(["hasLogin", "univerifyErrorMsg", "userInfo"]),
   },
-  onLoad() {
-    if (this.hasLogin) {
-      this.getPhoneNumber(uni.getStorageSync("univerifyInfo")).then(
-        (phoneNumber) => {
-          this.phoneNumber = phoneNumber;
-        }
-      );
-    }
-  },
+  onLoad() {},
   methods: {
     ...mapMutations(["login", "setUserInfo", "logout"]),
     Toast(data, duration = 1000) {
