@@ -29,6 +29,11 @@ const store = new Vuex.Store({
             state.hasLogin = false;
             state.userInfo = {};
         },
+        getPhoneNumber(state, result) {
+            if (result.detail.errMsg === 'getPhoneNumber:ok') {
+                console.log("detail", result.detail);
+            }
+        },
     },
     actions: {
 

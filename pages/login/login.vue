@@ -6,8 +6,7 @@
           <view class="uni-h3 uni-center uni-common-mt">已登录 </view>
           <view class="uni-hello-text uni-center">
             <text
-              >每个账号仅需登录1次，
-              后续每次进入页面即可自动拉取用户信息。</text
+              >每个账号仅需登录1次，后续每次进入页面即可自动拉取用户信息。</text
             >
           </view>
         </block>
@@ -17,13 +16,21 @@
         </block>
       </view>
       <view class="button-wrapper">
-      <view class="uni-btn-v uni- uni-common-mt">
-        <!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-QQ  || MP-JD -->
-        <button type="primary" open-type="getUserInfo" @getuserinfo="userLogin" style="margin-bottom: 10px;">
-          登录
-        </button>
-        <button type="primary" @tap="logout">注销</button>
-        <!-- #endif -->
+        <view class="uni-btn-v uni- uni-common-mt button-flex-container">
+          <!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-QQ  || MP-JD -->
+          <button type="primary" open-type="getUserInfo" @getuserinfo="login">
+            登录
+          </button>
+          <button type="primary" @tap="logout">注销</button>
+          <button
+            type="primary"
+            open-type="getPhoneNumber"
+            @getphonenumber="getPhoneNumber"
+          >
+            获取手机号
+          </button>
+          <!-- #endif -->
+        </view>
       </view>
     </view>
   </view>
@@ -44,17 +51,7 @@ export default {
   },
   onLoad() {},
   methods: {
-    ...mapMutations(["login", "logout"]),
-    Toast(data, duration = 1000) {
-      uni.showToast(
-        Object.assign({}, data, {
-          duration,
-        })
-      );
-    },
-    userLogin(result) {
-      this.login(result);
-    },
+    ...mapMutations(["login", "logout", "getPhoneNumber"]),
   },
 };
 </script>
@@ -63,5 +60,10 @@ export default {
 button {
   background-color: #007aff;
   color: #ffffff;
+}
+.button-flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
 }
 </style>
