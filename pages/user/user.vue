@@ -94,7 +94,7 @@
           icon="icon-dizhi"
           iconColor="#5fcda2"
           title="地址管理"
-          @eventClick="navTo('/pages/address/address')"
+          @eventClick="navTo('/pages/void/void')"
         ></list-cell>
         <list-cell
           icon="icon-share"
@@ -118,7 +118,7 @@
           iconColor="#e07472"
           title="设置"
           border=""
-          @eventClick="navTo('/pages/set/set')"
+          @eventClick="navTo('/pages/void/void')"
         ></list-cell>
       </view>
     </view>
@@ -146,7 +146,7 @@ export default {
   onNavigationBarButtonTap(e) {
     const index = e.index;
     if (index === 0) {
-      this.navTo("/pages/set/set");
+      this.navTo("/pages/void/void");
     } else if (index === 1) {
       // #ifdef APP-PLUS
       const pages = getCurrentPages();
@@ -157,7 +157,7 @@ export default {
       });
       // #endif
       uni.navigateTo({
-        url: "/pages/notice/notice",
+        url: "/pages/void/void",
       });
     }
   },
