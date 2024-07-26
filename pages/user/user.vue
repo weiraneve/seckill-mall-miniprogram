@@ -142,25 +142,6 @@ export default {
     };
   },
   onLoad() {},
-  // #ifndef MP
-  onNavigationBarButtonTap(e) {
-    const index = e.index;
-    if (index === 0) {
-      this.navTo("/pages/void/void");
-    } else if (index === 1) {
-      // #ifdef APP-PLUS
-      const pages = getCurrentPages();
-      const page = pages[pages.length - 1];
-      const currentWebview = page.$getAppWebview();
-      currentWebview.hideTitleNViewButtonRedDot({
-        index,
-      });
-      // #endif
-      uni.navigateTo({
-        url: "/pages/void/void",
-      });
-    }
-  },
   // #endif
   computed: {
     ...mapState(["hasLogin", "userInfo"]),
